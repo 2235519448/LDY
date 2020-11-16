@@ -19,17 +19,17 @@ public class AI extends MIDlet
 }
 class MainCanvas extends Canvas
 {
-	Image currentImg,img1,img2,img3,img4;
+	Image currentImg,downImg,leftImg,upImg,rightImg;
 	int x=120,y=120;
 	public MainCanvas(){
 	try
 	{
 		
 		currentImg=Image.createImage("/sayo10.png");
-        img1=Image.createImage("/sayo10.png");
-		img2=Image.createImage("/sayo12.png");
-		img3=Image.createImage("/sayo14.png");
-		img4=Image.createImage("/sayo16.png");
+        dowmImg=Image.createImage("/sayo10.png");
+		leftImg=Image.createImage("/sayo12.png");
+		upImg=Image.createImage("/sayo14.png");
+		rightImg=Image.createImage("/sayo16.png");
 		
 	}
 	catch(IOException e)
@@ -47,27 +47,24 @@ class MainCanvas extends Canvas
 	     int action=getGameAction(keyCode);
 		 if(action==DOWN)
 			 {
-			 currentImg=img1;
-			 y=y+5;
-			 repaint();
-			 }
-		 else if(action==LEFT)
-			 {
-			 currentImg=img2;
-			 x=x-5;
-		     repaint();
-			 }
-			 else if(action==UP)
-			 {
-	   		 currentImg=img3;
+			 currentImg=dowmImg;
 			 y=y-5;
-			 repaint();
 			 }
-		     else if(action==RIGHT)
+		 if(action==LEFT)
 			 {
-			 currentImg=img4;
-			 x=x+5;
-			 repaint();
+			 currentImg=leftImg;
+			 x=x-5;
 			 }
+		 if(action==UP)
+			 {
+	   		 currentImg=upImg;
+			 y=y+5;
+			 }
+		 if(action==RIGHT)
+			 {
+			 currentImg=rightImg;
+			 x=x+5;
+			 }
+			 repaint();
 	}
 }
