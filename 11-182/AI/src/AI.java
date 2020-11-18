@@ -18,7 +18,10 @@ public class AI extends MIDlet
 	}
 }
 class MainCanvas extends Canvas
-{
+{   Image heroUpImg[]=new Image[3];
+    Image heroDownImg[]=new Image[3];
+	Image heroLeftImg[]=new Image[3];
+	Image heroRightImg[]=new Image[3];
 	Image currentImg,downImg1,downImg2,downImg3,leftImg1,leftImg2,leftImg3,upImg1,upImg2,upImg3,rightImg1,rightImg2,rightImg3;
 	int x=120,y=120,i=0,j=0;
 	public MainCanvas(){
@@ -45,7 +48,7 @@ class MainCanvas extends Canvas
 	}
 	}
 	public void paint(Graphics g){
-		g.setColor(0,0,0);
+		g.setColor(255,255,255);
 		g.fillRect(0,0,getWidth(),getHeight());
 		g.drawImage(currentImg,x,y,0);
 	}
@@ -60,18 +63,19 @@ class MainCanvas extends Canvas
 			 {
 			 if (i==1)
 			 {
-				 currentImg=downImg2;
+				 currentImg=downImg1;
 				 y=y+3;
 			 }
 
+
 			 else if (i==2)
 			 {
-                 currentImg=downImg3;
+                 currentImg=downImg2;
 				 y=y+3;
 			 }
 			 else if(i==3)
 			 {
-                 currentImg=downImg2;
+                 currentImg=downImg3;
 				 y=y+3;
 			 }
 			 }
@@ -81,17 +85,20 @@ class MainCanvas extends Canvas
 			 {
 				 currentImg=leftImg1;
 				 x=x-3;
+				 System.out.println("10");
 			 }
 
 			 else if (i==2)
 			 {
                  currentImg=leftImg2;
 				 x=x-3;
+				 System.out.println("11");
 			 }
 			 else if(i==3)
 			 {
                  currentImg=leftImg3;
 				 x=x-3;
+				 System.out.println("12");
 			 }
 			 }
 		 if(action==UP)
